@@ -31,6 +31,19 @@ attrs = ">=16.0.0"
 pluggy = ">=0.4.0"
 
 [[package]]
+name = "appium-python-client"
+version = "4.0.0"
+description = "Python client for Appium"
+optional = false
+python-versions = "*"
+files = [
+    {file = "Appium-Python-Client-4.0.0.tar.gz", hash = "sha256:d13cbd6dd81d0290701ba451145ec7ebf5a6d74222bdaefc12b62ef6f56a1fd6"},
+]
+
+[package.dependencies]
+selenium = ">=4.12,<5.0"
+
+[[package]]
 name = "attrs"
 version = "24.2.0"
 description = "Classes Without Boilerplate"
@@ -552,4 +565,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "7033e084eb27bd6d17557784b13c723b8f147a465d53ff358929ea3bc54ed64d"
+content-hash = "5a93b97b81e67c926f08c0778459b5870b569bd035b191c9c30947f07bdc8f67"
