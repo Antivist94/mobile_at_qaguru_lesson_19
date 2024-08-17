@@ -1,11 +1,11 @@
 import pytest
+from dotenv import load_dotenv
 
 from utils import attach
 from appium.options.android import UiAutomator2Options
 from selene import browser
 import os
 from appium import webdriver
-from dotenv import load_dotenv
 
 
 @pytest.fixture(scope = 'function', autouse = True)
