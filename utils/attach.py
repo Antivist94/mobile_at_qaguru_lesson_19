@@ -1,6 +1,4 @@
-import allure
 import requests
-import os
 import allure
 from allure_commons.types import AttachmentType
 

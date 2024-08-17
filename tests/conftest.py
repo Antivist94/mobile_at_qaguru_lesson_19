@@ -1,5 +1,6 @@
 import pytest
-from allure_commons._allure import attach
+
+from utils import attach
 from appium.options.android import UiAutomator2Options
 from selene import browser
 import os
@@ -34,7 +35,7 @@ def mobile_management():
 
     browser.config.timeout = float(os.getenv('timeout', '10.0'))
 
-    session_id = browser.driver.session_id  # Получаем ID сессии
+    session_id = browser.driver.session_id
 
     yield
 
