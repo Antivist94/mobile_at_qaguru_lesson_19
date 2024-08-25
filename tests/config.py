@@ -37,6 +37,7 @@ def to_driver_options(context):
                 'userName': os.getenv('BROWSERSTACK_USER'),
                 'accessKey': os.getenv('BROWSERSTACK_KEY'),
             },
+
         )
 
     return options
