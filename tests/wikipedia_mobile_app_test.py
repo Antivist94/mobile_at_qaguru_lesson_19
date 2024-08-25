@@ -6,29 +6,65 @@ from selene import browser, have, be
 
 @allure.tag("mobile")
 @allure.label("owner", "Evdokimenko Eugene")
-@allure.feature("Википедия_примеры тесов для мобильных устройств")
-@allure.story("Поиск на сайте")
-def test_search_wikipedia():
-    with step('Type search'):
+@allure.feature("Wikipedia app_Mobile tests examples")
+@allure.story("'Explore' screen check ")
+def test_explore_screen_wikipedia():
+    with step('Skip onboarding screen'):
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click()
-        browser.element((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")).click()
-        browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/search_src_text")).type('Appium')
 
     with step('Verify content found'):
-        results = browser.all((AppiumBy.ID, 'org.wikipedia.alpha:id/page_list_item_title'))
-        results.should(have.size_greater_than(0))
-        results.first.should(have.text('Appium'))
+        results = browser.all((AppiumBy.ID, 'org.wikipedia.alpha:id/view_announcement_text'))
+        results.should(be.present)
+        results.first.should(have.text('Customize your Explore feed\n\nYou can now choose what to show on your feed, '
+                                       'and also prioritize your favorite types of content'))
 
 
 @allure.tag("mobile")
 @allure.label("owner", "Evdokimenko Eugene")
-@allure.feature("Википедия_примеры тесов для мобильных устройств")
-@allure.story("Открытие результата поиска")
-def test_open_search_result_wikipedia(mobile_management):
-    with step('Type search'):
+@allure.feature("Wikipedia app_Mobile tests examples")
+@allure.story("'Saved' screen check ")
+def test_saved_screen_wikipedia():
+    with step('Skip onboarding screen'):
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click()
-        browser.element((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")).click()
-        browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/search_src_text")).type('browserstack')
-    with step('Open search result'):
-        browser.all((AppiumBy.ID, "org.wikipedia.alpha:id/page_list_item_title")).first.click()
-        browser.all((AppiumBy.XPATH, '//android.webkit.WebView[@text="BrowserStack"]')).should(be.present)
+
+    with step('Press Saved button on bottom menu'):
+        browser.all((AppiumBy.ID, "org.wikipedia.alpha:id/navigation_bar_item_icon_view")).second.click()
+
+    with step('Verify content found'):
+        results = browser.all((AppiumBy.CLASS_NAME, 'android.widget.TextView'))
+        results.should(be.present)
+        results.first.should(have.text('Saved'))
+
+
+@allure.tag("mobile")
+@allure.label("owner", "Evdokimenko Eugene")
+@allure.feature("Wikipedia app_Mobile tests examples")
+@allure.story("'Search' screen check ")
+def test_search_screen_wikipedia():
+    with step('Skip onboarding screen'):
+        browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click()
+
+    with step('Press Search button on bottom menu'):
+        browser.all((AppiumBy.ID, "org.wikipedia.alpha:id/navigation_bar_item_icon_view")).element(3).click()
+
+    with step('Verify content found'):
+        results = browser.all((AppiumBy.CLASS_NAME, 'android.widget.TextView'))
+        results.should(be.present)
+        results.first.should(have.text('Search'))
+
+
+@allure.tag("mobile")
+@allure.label("owner", "Evdokimenko Eugene")
+@allure.feature("Wikipedia app_Mobile tests examples")
+@allure.story("'Edits' screen check ")
+def test_edits_screen_wikipedia():
+    with step('Skip onboarding screen'):
+        browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click()
+
+    with step('Press Edits button on bottom menu'):
+        browser.all((AppiumBy.ID, "org.wikipedia.alpha:id/navigation_bar_item_icon_view")).element(4).click()
+
+    with step('Verify content found'):
+        results = browser.all((AppiumBy.CLASS_NAME, 'android.widget.TextView'))
+        results.should(be.present)
+        results.first.should(have.text('Edits'))
