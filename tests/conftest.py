@@ -45,4 +45,5 @@ def mobile_management(context):
     browser.quit()
 
     if context == 'bstack':
+        load_dotenv()
         attach.add_video(session_id, os.getenv('BROWSERSTACK_USER'), os.getenv('BROWSERSTACK_KEY'))
