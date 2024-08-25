@@ -1,14 +1,15 @@
 import requests
 import allure
 from allure_commons.types import AttachmentType
+from selene import browser
 
 
-def add_screenshot(browser):
+def add_screenshot():
     png = browser.driver.get_screenshot_as_png()
     allure.attach(body = png, name = 'screenshot', attachment_type = AttachmentType.PNG, extension = '.png')
 
 
-def add_xml(browser):
+def add_xml():
     xml_dump = browser.driver.page_source
     allure.attach(body = xml_dump,
                   name = 'XML screen',
