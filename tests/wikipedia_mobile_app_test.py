@@ -28,7 +28,7 @@ def test_saved_screen_wikipedia():
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click()
 
     with step('Press Saved button on bottom menu'):
-        browser.all((AppiumBy.ID, "org.wikipedia.alpha:id/navigation_bar_item_icon_view")).second.click()
+        browser.all((AppiumBy.ID, "org.wikipedia.alpha:id/navigation_bar_item_icon_view")).element(1).click()
 
     with step('Verify content found'):
         results = browser.all((AppiumBy.CLASS_NAME, 'android.widget.TextView'))
@@ -45,7 +45,7 @@ def test_search_screen_wikipedia():
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click()
 
     with step('Press Search button on bottom menu'):
-        browser.all((AppiumBy.ID, "org.wikipedia.alpha:id/navigation_bar_item_icon_view")).element(3).click()
+        browser.all((AppiumBy.ID, "org.wikipedia.alpha:id/navigation_bar_item_icon_view")).element(2).click()
 
     with step('Verify content found'):
         results = browser.all((AppiumBy.CLASS_NAME, 'android.widget.TextView'))
@@ -62,7 +62,7 @@ def test_edits_screen_wikipedia():
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click()
 
     with step('Press Edits button on bottom menu'):
-        browser.all((AppiumBy.ID, "org.wikipedia.alpha:id/navigation_bar_item_icon_view")).element(4).click()
+        browser.all((AppiumBy.ID, "org.wikipedia.alpha:id/navigation_bar_item_icon_view")).element(3).click()
 
     with step('Verify content found'):
         results = browser.all((AppiumBy.CLASS_NAME, 'android.widget.TextView'))
