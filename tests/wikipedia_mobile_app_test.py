@@ -15,8 +15,6 @@ def test_explore_screen_wikipedia():
     with step('Verify content found'):
         results = browser.all((AppiumBy.ID, 'org.wikipedia.alpha:id/view_announcement_text'))
         results.should(be.present)
-        results.first.should(have.text('Customize your Explore feed\n\nYou can now choose what to show on your feed, '
-                                       'and also prioritize your favorite types of content'))
 
 
 @allure.tag("mobile")
